@@ -44,9 +44,22 @@ export class TrimbleService {
           },
           15000,
         );
-        this.api = api;
-        this.log("Connected to Trimble Connect.");
-        return api;
+            console.log("Workspace API:", api);
+    console.log("Viewer API:", api.viewer);
+    console.log("Inside iframe:", window.parent !== window);
+
+    if (!api.viewer) {
+      throw new AssemblyWorkflowError(
+        "VIEWER_NOT_READY",
+        window.parent === window
+          ? "The application is running as a standalone webpage. Open it inside the Trimble Connect 3D Viewer."
+          : "Connected to Trimble Connect, but the Viewer API is unavailable. Ensure this application is registered and opened as a 3D Extension.",
+      );
+    }
+
+    this.api = api;
+    this.log("Connected to the Trimble Connect 3D Viewer.");
+    return api;
       } catch (err) {
         throw new AssemblyWorkflowError(
           "VIEWER_NOT_READY",

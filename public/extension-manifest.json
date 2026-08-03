@@ -1,6 +1,4 @@
 {
-  "url": "https://YOUR-DEPLOYED-DOMAIN/index.html",
-  "title": "QR Assembly Viewer",
-  "icon": "https://YOUR-DEPLOYED-DOMAIN/icon.png",
-  "infoUrl": "https://YOUR-DEPLOYED-DOMAIN/README.md"
+   "url": "https://trimble-qr-extension-d51v.vercel.app",
+  "title": "QR Assembly Viewer"
 }
